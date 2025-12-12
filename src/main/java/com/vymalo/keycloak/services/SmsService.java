@@ -52,7 +52,7 @@ public class SmsService {
         final var clientId = Utils.getEnv("OAUTH2_CLIENT_ID");
         final var clientSecret = Utils.getEnv("OAUTH2_CLIENT_SECRET");
         final var tokenEndpoint = Utils.getEnv("OAUTH2_TOKEN_ENDPOINT");
-        final var allowedCountries = Pattern.compile(Utils.getEnv(ConfigKey.ALLOWED_COUNTRY_PATTERN, "*"), Pattern.CASE_INSENSITIVE).asMatchPredicate();
+        final var allowedCountries = Pattern.compile(Utils.getEnv(ConfigKey.ALLOWED_COUNTRY_PATTERN, ".*"), Pattern.CASE_INSENSITIVE).asMatchPredicate();
 
         final var apiClient = new ApiClient();
         apiClient.updateBaseUri(smsUrl);
